@@ -16,7 +16,7 @@ var removeElement = (nums, val) => {
     for(let i = 0; i < nums.length; i++){
         // 遇到需要保留的元素时，慢指针才会往前
         if(nums[i] != val) {
-            nums[k++] = nums[i];
+            nums[k++] = nums[i]; // k++ 后自增 返回+1之前的值
         }
     }
     return k;

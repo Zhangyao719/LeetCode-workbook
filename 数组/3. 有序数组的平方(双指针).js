@@ -4,11 +4,7 @@
  * 示例 2： 输入：nums = [-7,-3,2,3,11] 输出：[4,9,9,49,121]
  */
 
-/**
- * *
- */
-
-const sortedSqualist = function (nums) {
+const sortedSquares = function (nums) {
     let list = [];
 
     // 声明左右两个边界
@@ -28,4 +24,8 @@ const sortedSqualist = function (nums) {
     }
     return list;
 };
-console.log(sortedSqualist([-4, -1, 0, 3, 10]));
+console.log(sortedSquares([-4, -1, 0, 3, 10]));
+
+// 暴力骚操作：
+const sortedSquares1 = (nums) => (nums.map(item => item ** 2).sort((a, b) => a - b))
+console.log(sortedSquares1([-4, -1, 0, 3, 10]));

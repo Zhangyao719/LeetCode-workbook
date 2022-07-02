@@ -19,6 +19,10 @@
 
 [力扣题目链接](https://leetcode.cn/problems/squares-of-a-sorted-array/)
 
+### 长度最小的数组
+
+[力扣题目链接](https://leetcode.cn/problems/minimum-size-subarray-sum/)
+
 
 
 

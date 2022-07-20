@@ -7,14 +7,15 @@
  * 输出：["o","l","l","e","h"]
  */
 
- var reverseString = function(s) {
-    let l = -1, r = s.length;
+ var reverseString = function(str) {
+    const arr = str.split('');
+    let l = -1, r = arr.length;
 
     // 从最左边和最右边开始，往中间，两两对调。
      while (++l < --r) {
-         [s[l], s[r]] = [s[r], s[l]]
+         [arr[l], arr[r]] = [arr[r], arr[l]]
      };
-    return s;
+    return arr.join('');
 };
 
-console.log('🚀 → res', reverseString(["h","e","l","l","o"]))
+console.log('🚀 → res', reverseString('hello'))

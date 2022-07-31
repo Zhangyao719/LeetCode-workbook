@@ -25,3 +25,19 @@ var removeElements = function (head, val) {
   }
   return ret.next
 }
+
+// 方法二： 虚拟头节点
+function removeElements(head, val) {
+    // 添加虚拟节点
+    const data = new ListNode(0, head);
+    let pre = data, cur = data.next;
+    while (cur) {
+        if (cur.val === val) {
+            pre.next = cur.next
+        } else {
+            pre = cur;
+        }
+        cur = cur.next;
+    }
+    return data.next;
+};

@@ -7,11 +7,11 @@
  * 双链表：每一个节点有两个指针域，一个指向下一个节点，一个指向上一个节点。
  */
 
-class ListNode {
-  public val: number;
-  public next: ListNode = null;
-  constructor(value: number) {
-    this.val = value;
-    this.next = null;
+class ListNode1 {
+  val: number;
+  next: ListNode | null;
+  constructor(val: number, next?: ListNode ) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next
   }
 }

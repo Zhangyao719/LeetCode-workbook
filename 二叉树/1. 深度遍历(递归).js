@@ -31,5 +31,16 @@ var inorderTraversal = function (root) {
 }
 
 // * 后序遍历
-var postorderTraversal = function(root) {
+var postorderTraversal = function (root) {
+    let res = [];
+
+    function ergodic(root) {
+        if (root === null) return;
+
+        ergodic(root.left); // 后序遍历先从左右子树开始
+        ergodic(root.right);
+        res.push(root);
+    }
+
+    ergodic(root);
 };

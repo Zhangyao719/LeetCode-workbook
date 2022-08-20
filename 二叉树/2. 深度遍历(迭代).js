@@ -42,3 +42,21 @@ var inorderTraversal = function (root, res = []) {
   }
   return res
 }
+
+// * 后序遍历: 对前序遍历进行修改，1. 左子树先入栈，2.翻转结果
+// 入栈 左 -> 右
+// 出栈 中 -> 右 -> 左 结果翻转
+var postorderTraversal = function (root, res = []) {
+  if (!root) return res
+  const stack = [root]
+  let currNode = null
+
+  do {
+    currNode = stack.pop()
+    res.push(currNode.val)
+    currNode.left && stack.push(currNode.left)
+    currNode.right && stack.push(currNode.right)
+  } while (stack.length)
+
+  return res.reverse()
+}

@@ -1,19 +1,13 @@
-/**
- * 删除链表中等于给定值 val 的所有节点。
- *
- * 输入：head = [1,2,6,3,4,5,6], val = 6
- * 输出：[1,2,3,4,5]
- *
- * 输入：head = [], val = 1
- * 输出：[]
- */
+import { ListNode, getListFromArray, getArrayFromList } from './utils.js'
 
+// 方式一
 /**
  * @param {ListNode} head 指针
  * @param {number} val
  * @return {ListNode}
  */
-var removeElements = function (head, val) {
+
+var removeElements1 = function (head, val) {
   const ret = new ListNode(0, head)
   let cur = ret
   while (cur.next) {
@@ -27,17 +21,24 @@ var removeElements = function (head, val) {
 }
 
 // 方法二： 虚拟头节点
-function removeElements(head, val) {
-    // 添加虚拟节点
-    const data = new ListNode(0, head);
-    let pre = data, cur = data.next;
-    while (cur) {
-        if (cur.val === val) {
-            pre.next = cur.next
-        } else {
-            pre = cur;
-        }
-        cur = cur.next;
+function removeElements2(head, target) {
+  // 添加虚拟头节点
+  const dummyNode = new ListNode(0, head)
+
+  let pre = dummyNode,
+    cur = dummyNode.next
+  while (cur) {
+    if (cur.val === target) {
+      pre.next = cur.next // 删除当前节点（上节点的指针指向下节点，跳过当前节点）
+    } else {
+      pre = cur // 上节点下移
     }
-    return data.next;
-};
+    cur = cur.next // 当前节点下移
+  }
+  return dummyNode.next
+}
+
+const head = getListFromArray([1, 2, 6, 3, 4, 5, 6])
+const res = removeElements2(head, 6)
+const arr = getArrayFromList(res)
+console.log('🚀', arr)
